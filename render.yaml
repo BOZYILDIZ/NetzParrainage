@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: netz-parrainage
+    env: node
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: SMTP_HOST
+        sync: false
+      - key: SMTP_PORT
+        sync: false
+      - key: SMTP_SECURE
+        sync: false
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASS
+        sync: false
+      - key: MAIL_TO
+        sync: false
