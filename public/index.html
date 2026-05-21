@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulaire de parrainage</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page">
+    <div class="card">
+      <div class="card-header">
+        <div class="logo">NI</div>
+        <h1>Demande de parrainage</h1>
+        <p>Remplissez le formulaire ci-dessous pour soumettre votre demande.</p>
+      </div>
+
+      <form id="promoForm" novalidate>
+        <!-- Honeypot invisible -->
+        <div class="honeypot" aria-hidden="true">
+          <input type="text" name="honeypot" id="honeypot" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nom">Nom <span class="required">*</span></label>
+            <input type="text" id="nom" name="nom" placeholder="Dupont" autocomplete="family-name" maxlength="100">
+            <span class="error-msg" id="nom-error"></span>
+          </div>
+          <div class="form-group">
+            <label for="prenom">Prénom <span class="required">*</span></label>
+            <input type="text" id="prenom" name="prenom" placeholder="Jean" autocomplete="given-name" maxlength="100">
+            <span class="error-msg" id="prenom-error"></span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="telephone">Numéro de téléphone <span class="required">*</span></label>
+          <input type="tel" id="telephone" name="telephone" placeholder="+33 6 12 34 56 78" autocomplete="tel" maxlength="30">
+          <span class="error-msg" id="telephone-error"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="adresse">Adresse <span class="required">*</span></label>
+          <div class="autocomplete-wrapper">
+            <input type="text" id="adresse" name="adresse" placeholder="12 rue de la Paix" autocomplete="new-password" readonly maxlength="200">
+            <ul class="suggestions-list" id="adresse-suggestions" hidden></ul>
+          </div>
+          <span class="error-msg" id="adresse-error"></span>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="code_postal">Code postal <span class="required">*</span></label>
+            <input type="text" id="code_postal" name="code_postal" placeholder="75001" autocomplete="postal-code" maxlength="10">
+            <span class="error-msg" id="code_postal-error"></span>
+          </div>
+          <div class="form-group">
+            <label for="ville">Ville <span class="required">*</span></label>
+            <input type="text" id="ville" name="ville" placeholder="Paris" autocomplete="address-level2" maxlength="100">
+            <span class="error-msg" id="ville-error"></span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Adresse email <span class="required">*</span></label>
+          <input type="email" id="email" name="email" placeholder="jean.dupont@email.com" autocomplete="email" maxlength="150">
+          <span class="error-msg" id="email-error"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="code_parrainage">Code de parrainage <span class="required">*</span></label>
+          <input type="text" id="code_parrainage" name="code_parrainage" placeholder="EX: PROMO2024" maxlength="50">
+          <span class="error-msg" id="code-error"></span>
+        </div>
+
+        <button type="submit" id="submitBtn">
+          <span class="btn-text">Valider</span>
+          <span class="btn-loader" hidden>
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-dasharray="40 20"/></svg>
+          </span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Popup de succès -->
+  <div class="overlay" id="overlay" hidden>
+    <div class="popup" id="popup">
+      <div class="popup-icon">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="11" fill="#1a1a2e"/>
+          <path d="M7 12.5l3.5 3.5 6.5-7" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h2>Demande envoyée !</h2>
+      <p>Votre demande a bien été envoyée.<br>Un email de confirmation vous a été transmis.</p>
+      <button onclick="closePopup()">Fermer</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
